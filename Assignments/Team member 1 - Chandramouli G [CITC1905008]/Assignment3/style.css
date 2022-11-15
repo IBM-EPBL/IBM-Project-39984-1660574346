@@ -1,0 +1,28 @@
+*
+{
+  margin: 0;
+}
+img
+{
+  height: 100px;
+  width: 100px;
+}
+
+.header
+{
+  text-align: center;
+  background-color: aquamarine;
+  padding: 20px;
+
+}
+
+.gallery
+{
+  
+  margin: 50px 273px;
+}
+
+.gallery img
+{
+  margin: 20px;
+}
