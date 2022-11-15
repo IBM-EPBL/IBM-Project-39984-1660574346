@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="../static/css/inventory.css">
+<title>Inventory</title>
+{% endblock %}
+
+{% block body%}
+<div class="header">
+  <h1>{{username}}'s Inventory</h1>
+</div>
+
+<div class="table">
+  <table class="styled-table">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Click to Update</th>
+        </tr>
+    </thead>
+
+    <tbody>
+      {% for product in products %}
+      <form action="/sellItem" method="POST">
+      {% if product["STOCK_COUNT"] < product["MINIMUM_STOCK"] %}
+        <tr style="background-color: rgb(235, 105, 105);"> 
+        {% else %}
+        <tr> 
+          {% endif %}
+          <td>{{product['PRODUCT_NAME']}}</td>
+          <td>{{product['PRICE_PER_UNIT']}}</td>
+          <td>{{product['STOCK_COUNT']}}</td>
+          <input type="text" required name = "p_name" value="{{product['PRODUCT_NAME']}}" hidden>
+          <input type="text" required name = "stock" value="{{product['STOCK_COUNT']}}" hidden>
+          <td>
+            <input type="submit" value="sell">
+          </td>
+        </tr>
+      </form>
+      {% endfor %}
+    </tbody>
+    
+  </table>
+</div>
+
+  <div class="button">
+    <button class="btn"><a href="./adp">Add Product</a></button>
+  </div>
+
+  <div class="button">
+    <button class="btn"><a href="./epd">Edit Product</a></button>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Add Product</title>
+{% endblock %}
+
+{% block body%}
+<div class="center">
+  <h1>Product Details</h1>
+  <form class="form" action="/addproduct" method="POST">
+
+    <div class="txt_field">
+      <input type="text" required name = "p_name">
+      <span></span>
+      <label>Product Name</label>
+    </div>
+
+    <div class="txt_field">
+      <input type="number" required name = "stock">
+      <span></span>
+      <label>Stock count</label>
+    </div>
+
+    <div class="txt_field">
+      <input type="number" required name = "price">
+      <span></span>
+      <label>Price</label>
+    </div>
+
+    <div class="txt_field">
+      <input type="number" required name = "minimum_stock">
+      <span></span>
+      <label>Minimum number of stocks</label>
+    </div>
+
+    <input type="submit" value="Add">
+
+    <div class="signup_link">
+    </div>
+  </form>
+</div>
+{% endblock %}

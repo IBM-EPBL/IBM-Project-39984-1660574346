@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Login page</title>
+{% endblock %}
+
+{% block body%}
+<div class="center">
+  <p>{{msg}}</p>
+  <h1>Login</h1>
+  <form class="form" action="/login" method="POST">
+
+    <div class="txt_field">
+      <input type="text" required name = "username">
+      <span></span>
+      <label>Username</label>
+    </div>
+
+    <div class="txt_field">
+      <input type="password" required name = "password">
+      <span></span>
+      <label>Password</label>
+    </div>
+
+    <input type="submit" value="Login">
+    <div class="signup_link">
+      Not a member? <a href="register">Signup</a>
+    </div>
+
+  </form>
+</div>
+{% endblock %}
+
+  
+
