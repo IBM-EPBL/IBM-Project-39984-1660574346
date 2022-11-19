@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Register page</title>
+{% endblock %}
+
+{% block body%}
+<div class="container">
+  <p>{{msg}}</p>
+  <h1>Please Register</h1>
+  <form class="form" action="/register" method="POST">
+
+    <div class="form-control">
+      <input type="text" required name="fname">
+      <label for="name">First Name</label>
+    </div>
+
+    <div class="form-control">
+      <input type="text" required name="lname">
+      <label for="name">Last name</label>
+    </div>
+
+    <div class="form-control">
+      <input type="text" required name="usrname">
+      <label for="name">Username</label>
+    </div>
+
+    <div class="form-control">
+      <input type="text" required name="email">
+      <label for="name">Email</label>
+    </div>
+
+    <div class="form-control">
+      <input type="password" required name="pwd">
+      <label for="password">Password</label>
+    </div>
+
+    <button class="btn" type="submit">Register</button>
+
+  </form>
+</div>
+{% endblock %}

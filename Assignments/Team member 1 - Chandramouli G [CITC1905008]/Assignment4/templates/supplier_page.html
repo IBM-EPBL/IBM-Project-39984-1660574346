@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="../static/css/sup_css.css">
+<title>supplier</title>
+{% endblock %}
+
+{% block body%}
+  <div class="header">
+    <h1>Hi {{usrname}}</h1>
+
+  </div>
+
+  <div class="container">
+    {% for entry in products %}
+    <p>{{entry['PNAME']}}</p>
+    <p>{{entry['PRICE']}}</p>
+    <p>{{entry['QTY']}}</p>
+    <br>
+    {% endfor %}
+  </div>
+
+  <div class="container">
+    <button type="submit" class="btn" onclick="openPopup()">Add Product</button>
+
+    <div class="popup" id="popup">
+
+      <h1>Enter Product Details</h1>
+      <form class="form" action="/addItem" method="POST">
+
+        <div class="form-control">
+          <input type="text" required name="pname">
+          <label for="name">Product Name</label>
+        </div>
+
+        <div class="form-control">
+          <input type="number" required name="qty">
+          <label for="quantity">Quantity</label>
+        </div>
+
+        <div class="form-control">
+          <input type="number" step='0.01' placeholder='0.00' required name="price">
+          <label for="price">Price</label>
+        </div>
+
+        <button type="submit" class="btn" >Add</button>
+
+      </form>
+    </div>
+  </div>
+
+  <script>
+    let popup = document.getElementById("popup");
+
+    function openPopup()
+    {
+      popup.classList.add("open-popup");
+    }
+
+    function closePopup()
+    {
+      popup.classList.remove("open-popup");
+    }
+
+  </script>
+{% endblock %}
